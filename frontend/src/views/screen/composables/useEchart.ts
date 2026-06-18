@@ -73,7 +73,11 @@ export function useEchart(option: Ref<ScreenEchartOption> | (() => ScreenEchartO
 
   function setOption() {
     if (!chart.value) return;
-    chart.value.setOption(getOption(), { notMerge: false, lazyUpdate: true });
+    chart.value.setOption(getOption(), {
+      notMerge: false,
+      lazyUpdate: true,
+      replaceMerge: ["graphic", "series"],
+    });
   }
 
   async function mountChart() {
